@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "تشغيل تطبيق الطباعة (Debug)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/printer_nader/bin/Debug/net8.0-windows/printer_nader.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/printer_nader",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "env": {
+                "DOTNET_CLI_TELEMETRY_OPTOUT": "1"
+            }
+        },
+        {
+            "name": "تشغيل تطبيق الطباعة (Release)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-release",
+            "program": "${workspaceFolder}/printer_nader/bin/Release/net8.0-windows/printer_nader.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/printer_nader",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "Attach to Process",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ]
+}
