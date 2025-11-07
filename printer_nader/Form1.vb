@@ -9,6 +9,11 @@ Public Class Form1
     Private printWithBarcode As Boolean
     Private barcodeWidth As Integer
     Private barcodeHeight As Integer
+    Private numberX As Single
+    Private numberY As Single
+    Private barcodeX As Single
+    Private barcodeY As Single
+    Private numberSize As Integer
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadPrinters()
@@ -111,6 +116,41 @@ Public Class Form1
             Return False
         End If
 
+        Dim tempX, tempY As Single
+        If Not Single.TryParse(txtNumberX.Text, tempX) Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لموضع الرقم X", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtNumberX.Focus()
+            Return False
+        End If
+        numberX = tempX
+
+        If Not Single.TryParse(txtNumberY.Text, tempY) Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لموضع الرقم Y", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtNumberY.Focus()
+            Return False
+        End If
+        numberY = tempY
+
+        If Not Single.TryParse(txtBarcodeX.Text, tempX) Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لموضع الباركود X", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtBarcodeX.Focus()
+            Return False
+        End If
+        barcodeX = tempX
+
+        If Not Single.TryParse(txtBarcodeY.Text, tempY) Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لموضع الباركود Y", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtBarcodeY.Focus()
+            Return False
+        End If
+        barcodeY = tempY
+
+        If Not Integer.TryParse(txtNumberSize.Text, numberSize) OrElse numberSize <= 0 Then
+            MessageBox.Show("الرجاء إدخال حجم خط صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtNumberSize.Focus()
+            Return False
+        End If
+
         Return True
     End Function
 
@@ -156,21 +196,20 @@ Public Class Form1
     Private Sub DrawLabel(g As Graphics, number As Integer, x As Single, y As Single, width As Single, height As Single)
         Dim numberText As String = number.ToString()
         
-        Dim numberFont As New Font("Arial", 28, FontStyle.Bold)
-        Dim numberSize As SizeF = g.MeasureString(numberText, numberFont)
+        Dim numberFont As New Font("Arial", numberSize, FontStyle.Bold)
         
-        Dim numberX As Single = x + 10
-        Dim numberY As Single = y + 5
-        g.DrawString(numberText, numberFont, Brushes.Black, numberX, numberY)
+        Dim actualNumberX As Single = x + numberX
+        Dim actualNumberY As Single = y + numberY
+        g.DrawString(numberText, numberFont, Brushes.Black, actualNumberX, actualNumberY)
 
         If printWithBarcode Then
             Try
                 Dim barcodeImage As Bitmap = GenerateBarcode(numberText, barcodeWidth, barcodeHeight)
                 
-                Dim barcodeX As Single = x + 10
-                Dim barcodeY As Single = numberY + numberSize.Height + 5
+                Dim actualBarcodeX As Single = x + barcodeX
+                Dim actualBarcodeY As Single = y + barcodeY
                 
-                g.DrawImage(barcodeImage, barcodeX, barcodeY, barcodeWidth, barcodeHeight)
+                g.DrawImage(barcodeImage, actualBarcodeX, actualBarcodeY, barcodeWidth, barcodeHeight)
             Catch ex As Exception
                 Dim errorFont As New Font("Arial", 8)
                 g.DrawString("خطأ في الباركود", errorFont, Brushes.Red, x + 10, y + 50)

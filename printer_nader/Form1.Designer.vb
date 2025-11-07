@@ -109,6 +109,127 @@ Partial Class Form1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "إعدادات الباركود"
         
+        'GroupBox3 - Advanced Settings
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3.Controls.Add(Me.txtNumberX)
+        Me.GroupBox3.Controls.Add(Me.txtNumberY)
+        Me.GroupBox3.Controls.Add(Me.txtBarcodeX)
+        Me.GroupBox3.Controls.Add(Me.txtBarcodeY)
+        Me.GroupBox3.Controls.Add(Me.txtNumberSize)
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Controls.Add(Me.Label7)
+        Me.GroupBox3.Controls.Add(Me.Label8)
+        Me.GroupBox3.Controls.Add(Me.Label9)
+        Me.GroupBox3.Controls.Add(Me.Label10)
+        Me.GroupBox3.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox3.Location = New System.Drawing.Point(420, 12)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.GroupBox3.Size = New System.Drawing.Size(300, 293)
+        Me.GroupBox3.TabIndex = 7
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "إعدادات متقدمة"
+        
+        'Label6 - Number X
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label6.Location = New System.Drawing.Point(200, 35)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(85, 14)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "موضع الرقم X:"
+        
+        'txtNumberX
+        Me.txtNumberX = New System.Windows.Forms.TextBox()
+        Me.txtNumberX.Font = New System.Drawing.Font("Tahoma", 10.0!)
+        Me.txtNumberX.Location = New System.Drawing.Point(90, 32)
+        Me.txtNumberX.Name = "txtNumberX"
+        Me.txtNumberX.Size = New System.Drawing.Size(90, 24)
+        Me.txtNumberX.TabIndex = 1
+        Me.txtNumberX.Text = "10"
+        Me.txtNumberX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'Label7 - Number Y
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label7.Location = New System.Drawing.Point(200, 75)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(85, 14)
+        Me.Label7.TabIndex = 2
+        Me.Label7.Text = "موضع الرقم Y:"
+        
+        'txtNumberY
+        Me.txtNumberY = New System.Windows.Forms.TextBox()
+        Me.txtNumberY.Font = New System.Drawing.Font("Tahoma", 10.0!)
+        Me.txtNumberY.Location = New System.Drawing.Point(90, 72)
+        Me.txtNumberY.Name = "txtNumberY"
+        Me.txtNumberY.Size = New System.Drawing.Size(90, 24)
+        Me.txtNumberY.TabIndex = 3
+        Me.txtNumberY.Text = "5"
+        Me.txtNumberY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'Label8 - Barcode X
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label8.Location = New System.Drawing.Point(180, 115)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(105, 14)
+        Me.Label8.TabIndex = 4
+        Me.Label8.Text = "موضع الباركود X:"
+        
+        'txtBarcodeX
+        Me.txtBarcodeX = New System.Windows.Forms.TextBox()
+        Me.txtBarcodeX.Font = New System.Drawing.Font("Tahoma", 10.0!)
+        Me.txtBarcodeX.Location = New System.Drawing.Point(90, 112)
+        Me.txtBarcodeX.Name = "txtBarcodeX"
+        Me.txtBarcodeX.Size = New System.Drawing.Size(90, 24)
+        Me.txtBarcodeX.TabIndex = 5
+        Me.txtBarcodeX.Text = "10"
+        Me.txtBarcodeX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'Label9 - Barcode Y
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label9.Location = New System.Drawing.Point(180, 155)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(105, 14)
+        Me.Label9.TabIndex = 6
+        Me.Label9.Text = "موضع الباركود Y:"
+        
+        'txtBarcodeY
+        Me.txtBarcodeY = New System.Windows.Forms.TextBox()
+        Me.txtBarcodeY.Font = New System.Drawing.Font("Tahoma", 10.0!)
+        Me.txtBarcodeY.Location = New System.Drawing.Point(90, 152)
+        Me.txtBarcodeY.Name = "txtBarcodeY"
+        Me.txtBarcodeY.Size = New System.Drawing.Size(90, 24)
+        Me.txtBarcodeY.TabIndex = 7
+        Me.txtBarcodeY.Text = "40"
+        Me.txtBarcodeY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'Label10 - Number Size
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label10.Location = New System.Drawing.Point(205, 195)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(80, 14)
+        Me.Label10.TabIndex = 8
+        Me.Label10.Text = "حجم الخط:"
+        
+        'txtNumberSize
+        Me.txtNumberSize = New System.Windows.Forms.TextBox()
+        Me.txtNumberSize.Font = New System.Drawing.Font("Tahoma", 10.0!)
+        Me.txtNumberSize.Location = New System.Drawing.Point(90, 192)
+        Me.txtNumberSize.Name = "txtNumberSize"
+        Me.txtNumberSize.Size = New System.Drawing.Size(90, 24)
+        Me.txtNumberSize.TabIndex = 9
+        Me.txtNumberSize.Text = "28"
+        Me.txtNumberSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
         'chkPrintBarcode
         Me.chkPrintBarcode.AutoSize = True
         Me.chkPrintBarcode.Checked = True
@@ -225,7 +346,8 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(424, 461)
+        Me.ClientSize = New System.Drawing.Size(732, 461)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.lblStatus)
         Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.btnPreview)
@@ -242,6 +364,8 @@ Partial Class Form1
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
     End Sub
@@ -264,5 +388,16 @@ Partial Class Form1
     Friend WithEvents lblStatus As Label
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents txtNumberX As TextBox
+    Friend WithEvents txtNumberY As TextBox
+    Friend WithEvents txtBarcodeX As TextBox
+    Friend WithEvents txtBarcodeY As TextBox
+    Friend WithEvents txtNumberSize As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
 
 End Class
