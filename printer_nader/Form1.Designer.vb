@@ -23,63 +23,88 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtNumberTo = New System.Windows.Forms.TextBox()
-        Me.txtNumberFrom = New System.Windows.Forms.TextBox()
+        Me.txtPrintLength = New System.Windows.Forms.TextBox()
+        Me.txtPrintWidth = New System.Windows.Forms.TextBox()
+        Me.txtPrintTemp = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.chkPrintBarcode = New System.Windows.Forms.CheckBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtBarWidth = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtBarHeight = New System.Windows.Forms.TextBox()
-        Me.cmbPrinters = New System.Windows.Forms.ComboBox()
+        Me.txtWideBarWidth = New System.Windows.Forms.TextBox()
+        Me.txtNarrowBarWidth = New System.Windows.Forms.TextBox()
+        Me.txtBarcodeY = New System.Windows.Forms.TextBox()
+        Me.txtBarcodeX2 = New System.Windows.Forms.TextBox()
+        Me.txtBarcodeX1 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.btnPrint = New System.Windows.Forms.Button()
-        Me.btnPreview = New System.Windows.Forms.Button()
-        Me.lblStatus = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txtPrinterName = New System.Windows.Forms.TextBox()
+        Me.chkPrintMode = New System.Windows.Forms.CheckBox()
+        Me.btnOpenPrint = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.txtHashSize = New System.Windows.Forms.TextBox()
+        Me.txtNumberSize = New System.Windows.Forms.TextBox()
+        Me.txtNumberY = New System.Windows.Forms.TextBox()
+        Me.txtNumberX = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.lblPreviewNumber2 = New System.Windows.Forms.Label()
+        Me.lblPreviewNumber1 = New System.Windows.Forms.Label()
+        Me.btnNewPrint = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.chkPrintBarcode = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         
-        'GroupBox1
-        Me.GroupBox1.Controls.Add(Me.txtNumberTo)
-        Me.GroupBox1.Controls.Add(Me.txtNumberFrom)
+        'GroupBox1 - مقاس الطباعة بالملم
+        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
+        Me.GroupBox1.Controls.Add(Me.txtPrintLength)
+        Me.GroupBox1.Controls.Add(Me.txtPrintWidth)
+        Me.GroupBox1.Controls.Add(Me.txtPrintTemp)
+        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
         Me.GroupBox1.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 32)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 40)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.GroupBox1.Size = New System.Drawing.Size(290, 155)
+        Me.GroupBox1.Size = New System.Drawing.Size(288, 148)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "مقاس الطباعة بالملي"
+        Me.GroupBox1.Text = "مقاس الطباعة بالملم"
         
-        'Label1
+        'Label1 - حرارة الطباعة
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.0!)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(180, 35)
+        Me.Label1.Location = New System.Drawing.Point(170, 35)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(85, 14)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "حرارة الطباعة"
         
-        'txtNumberFrom
-        Me.txtNumberFrom.Font = New System.Drawing.Font("Tahoma", 11.0!)
-        Me.txtNumberFrom.Location = New System.Drawing.Point(40, 32)
-        Me.txtNumberFrom.Name = "txtNumberFrom"
-        Me.txtNumberFrom.Size = New System.Drawing.Size(80, 25)
-        Me.txtNumberFrom.TabIndex = 1
-        Me.txtNumberFrom.Text = "15"
-        Me.txtNumberFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        'txtPrintTemp
+        Me.txtPrintTemp.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtPrintTemp.Location = New System.Drawing.Point(40, 32)
+        Me.txtPrintTemp.Name = "txtPrintTemp"
+        Me.txtPrintTemp.Size = New System.Drawing.Size(80, 25)
+        Me.txtPrintTemp.TabIndex = 1
+        Me.txtPrintTemp.Text = "15"
+        Me.txtPrintTemp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
-        'Label2
+        'Label2 - العرض
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.0!)
         Me.Label2.ForeColor = System.Drawing.Color.White
@@ -89,252 +114,361 @@ Partial Class Form1
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "العرض"
         
-        'txtNumberTo
-        Me.txtNumberTo.Font = New System.Drawing.Font("Tahoma", 11.0!)
-        Me.txtNumberTo.Location = New System.Drawing.Point(40, 69)
-        Me.txtNumberTo.Name = "txtNumberTo"
-        Me.txtNumberTo.Size = New System.Drawing.Size(80, 25)
-        Me.txtNumberTo.TabIndex = 3
-        Me.txtNumberTo.Text = "40"
-        Me.txtNumberTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        'txtPrintWidth
+        Me.txtPrintWidth.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtPrintWidth.Location = New System.Drawing.Point(40, 69)
+        Me.txtPrintWidth.Name = "txtPrintWidth"
+        Me.txtPrintWidth.Size = New System.Drawing.Size(80, 25)
+        Me.txtPrintWidth.TabIndex = 3
+        Me.txtPrintWidth.Text = "40"
+        Me.txtPrintWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
-        'GroupBox2
-        Me.GroupBox2.Controls.Add(Me.chkPrintBarcode)
+        'Label3 - الطول
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(210, 109)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(45, 14)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "الطول"
+        
+        'txtPrintLength
+        Me.txtPrintLength.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtPrintLength.Location = New System.Drawing.Point(40, 106)
+        Me.txtPrintLength.Name = "txtPrintLength"
+        Me.txtPrintLength.Size = New System.Drawing.Size(80, 25)
+        Me.txtPrintLength.TabIndex = 5
+        Me.txtPrintLength.Text = "25"
+        Me.txtPrintLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'GroupBox2 - مقاسات الباركود
+        Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.txtWideBarWidth)
+        Me.GroupBox2.Controls.Add(Me.txtNarrowBarWidth)
+        Me.GroupBox2.Controls.Add(Me.txtBarcodeY)
+        Me.GroupBox2.Controls.Add(Me.txtBarcodeX2)
+        Me.GroupBox2.Controls.Add(Me.txtBarcodeX1)
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.txtBarWidth)
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.txtBarHeight)
         Me.GroupBox2.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 145)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.White
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 200)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.GroupBox2.Size = New System.Drawing.Size(400, 160)
+        Me.GroupBox2.Size = New System.Drawing.Size(288, 250)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "إعدادات الباركود"
+        Me.GroupBox2.Text = "مقاسات الباركود"
         
-        'GroupBox3 - Advanced Settings
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox3.Controls.Add(Me.txtNumberX)
-        Me.GroupBox3.Controls.Add(Me.txtNumberY)
-        Me.GroupBox3.Controls.Add(Me.txtBarcodeX)
-        Me.GroupBox3.Controls.Add(Me.txtBarcodeY)
-        Me.GroupBox3.Controls.Add(Me.txtNumberSize)
-        Me.GroupBox3.Controls.Add(Me.Label6)
-        Me.GroupBox3.Controls.Add(Me.Label7)
-        Me.GroupBox3.Controls.Add(Me.Label8)
-        Me.GroupBox3.Controls.Add(Me.Label9)
-        Me.GroupBox3.Controls.Add(Me.Label10)
+        'Label4 - ارتفاع
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(210, 35)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(45, 14)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "ارتفاع"
+        
+        'Label5 - X
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(43, 35)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(20, 18)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "X"
+        
+        'txtBarcodeX1
+        Me.txtBarcodeX1.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtBarcodeX1.Location = New System.Drawing.Point(70, 32)
+        Me.txtBarcodeX1.Name = "txtBarcodeX1"
+        Me.txtBarcodeX1.Size = New System.Drawing.Size(60, 25)
+        Me.txtBarcodeX1.TabIndex = 2
+        Me.txtBarcodeX1.Text = "2"
+        Me.txtBarcodeX1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'txtBarcodeX2
+        Me.txtBarcodeX2.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtBarcodeX2.Location = New System.Drawing.Point(140, 32)
+        Me.txtBarcodeX2.Name = "txtBarcodeX2"
+        Me.txtBarcodeX2.Size = New System.Drawing.Size(60, 25)
+        Me.txtBarcodeX2.TabIndex = 3
+        Me.txtBarcodeX2.Text = "4"
+        Me.txtBarcodeX2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'Label6 - Y
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(43, 75)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(19, 18)
+        Me.Label6.TabIndex = 4
+        Me.Label6.Text = "Y"
+        
+        'txtBarcodeY
+        Me.txtBarcodeY.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtBarcodeY.Location = New System.Drawing.Point(70, 72)
+        Me.txtBarcodeY.Name = "txtBarcodeY"
+        Me.txtBarcodeY.Size = New System.Drawing.Size(60, 25)
+        Me.txtBarcodeY.TabIndex = 5
+        Me.txtBarcodeY.Text = "1"
+        Me.txtBarcodeY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'Label7 - Narrow Bar Width
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(135, 120)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(120, 14)
+        Me.Label7.TabIndex = 6
+        Me.Label7.Text = "Narrow Bar Width"
+        
+        'txtNarrowBarWidth
+        Me.txtNarrowBarWidth.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtNarrowBarWidth.Location = New System.Drawing.Point(70, 117)
+        Me.txtNarrowBarWidth.Name = "txtNarrowBarWidth"
+        Me.txtNarrowBarWidth.Size = New System.Drawing.Size(60, 25)
+        Me.txtNarrowBarWidth.TabIndex = 7
+        Me.txtNarrowBarWidth.Text = "2"
+        Me.txtNarrowBarWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'Label8 - Wide Bar Width
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(155, 160)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(100, 14)
+        Me.Label8.TabIndex = 8
+        Me.Label8.Text = "Wide Bar Width"
+        
+        'txtWideBarWidth
+        Me.txtWideBarWidth.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtWideBarWidth.Location = New System.Drawing.Point(70, 157)
+        Me.txtWideBarWidth.Name = "txtWideBarWidth"
+        Me.txtWideBarWidth.Size = New System.Drawing.Size(60, 25)
+        Me.txtWideBarWidth.TabIndex = 9
+        Me.txtWideBarWidth.Text = "4"
+        Me.txtWideBarWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'GroupBox3 - الطابعة والوضع
+        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
+        Me.GroupBox3.Controls.Add(Me.btnOpenPrint)
+        Me.GroupBox3.Controls.Add(Me.txtPrinterName)
+        Me.GroupBox3.Controls.Add(Me.chkPrintMode)
         Me.GroupBox3.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox3.Location = New System.Drawing.Point(420, 12)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.White
+        Me.GroupBox3.Location = New System.Drawing.Point(345, 40)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.GroupBox3.Size = New System.Drawing.Size(300, 293)
-        Me.GroupBox3.TabIndex = 7
+        Me.GroupBox3.Size = New System.Drawing.Size(497, 65)
+        Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "إعدادات متقدمة"
         
-        'Label6 - Number X
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 9.0!)
-        Me.Label6.Location = New System.Drawing.Point(200, 35)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(85, 14)
-        Me.Label6.TabIndex = 0
-        Me.Label6.Text = "موضع الرقم X (مم):"
+        'chkPrintMode - 2x1 checkbox
+        Me.chkPrintMode.BackColor = System.Drawing.Color.Yellow
+        Me.chkPrintMode.Checked = True
+        Me.chkPrintMode.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkPrintMode.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.chkPrintMode.ForeColor = System.Drawing.Color.Black
+        Me.chkPrintMode.Location = New System.Drawing.Point(395, 23)
+        Me.chkPrintMode.Name = "chkPrintMode"
+        Me.chkPrintMode.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.chkPrintMode.Size = New System.Drawing.Size(85, 26)
+        Me.chkPrintMode.TabIndex = 0
+        Me.chkPrintMode.Text = "2x1"
+        Me.chkPrintMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.chkPrintMode.UseVisualStyleBackColor = False
+        
+        'txtPrinterName
+        Me.txtPrinterName.Font = New System.Drawing.Font("Tahoma", 10.0!)
+        Me.txtPrinterName.Location = New System.Drawing.Point(100, 23)
+        Me.txtPrinterName.Name = "txtPrinterName"
+        Me.txtPrinterName.Size = New System.Drawing.Size(280, 24)
+        Me.txtPrinterName.TabIndex = 1
+        Me.txtPrinterName.Text = "Xprinter XP-370B"
+        Me.txtPrinterName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'btnOpenPrint
+        Me.btnOpenPrint.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.btnOpenPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnOpenPrint.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnOpenPrint.ForeColor = System.Drawing.Color.White
+        Me.btnOpenPrint.Location = New System.Drawing.Point(15, 18)
+        Me.btnOpenPrint.Name = "btnOpenPrint"
+        Me.btnOpenPrint.Size = New System.Drawing.Size(75, 35)
+        Me.btnOpenPrint.TabIndex = 2
+        Me.btnOpenPrint.Text = "فتح الطبعة"
+        Me.btnOpenPrint.UseVisualStyleBackColor = False
+        
+        'GroupBox4 - معلومات إضافية
+        Me.GroupBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
+        Me.GroupBox4.Controls.Add(Me.txtHashSize)
+        Me.GroupBox4.Controls.Add(Me.txtNumberSize)
+        Me.GroupBox4.Controls.Add(Me.txtNumberY)
+        Me.GroupBox4.Controls.Add(Me.txtNumberX)
+        Me.GroupBox4.Controls.Add(Me.Label12)
+        Me.GroupBox4.Controls.Add(Me.Label11)
+        Me.GroupBox4.Controls.Add(Me.Label10)
+        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox4.ForeColor = System.Drawing.Color.White
+        Me.GroupBox4.Location = New System.Drawing.Point(345, 115)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.GroupBox4.Size = New System.Drawing.Size(497, 70)
+        Me.GroupBox4.TabIndex = 3
+        Me.GroupBox4.TabStop = False
+        
+        'Label9 - X
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(358, 30)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(20, 18)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "X"
         
         'txtNumberX
-        Me.txtNumberX = New System.Windows.Forms.TextBox()
-        Me.txtNumberX.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.txtNumberX.Location = New System.Drawing.Point(90, 32)
+        Me.txtNumberX.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtNumberX.Location = New System.Drawing.Point(383, 27)
         Me.txtNumberX.Name = "txtNumberX"
-        Me.txtNumberX.Size = New System.Drawing.Size(90, 24)
+        Me.txtNumberX.Size = New System.Drawing.Size(90, 25)
         Me.txtNumberX.TabIndex = 1
         Me.txtNumberX.Text = "31"
         Me.txtNumberX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
-        'Label7 - Number Y
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.0!)
-        Me.Label7.Location = New System.Drawing.Point(200, 75)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(85, 14)
-        Me.Label7.TabIndex = 2
-        Me.Label7.Text = "موضع الرقم Y (مم):"
+        'Label10 - Y
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(260, 30)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(19, 18)
+        Me.Label10.TabIndex = 2
+        Me.Label10.Text = "Y"
         
         'txtNumberY
-        Me.txtNumberY = New System.Windows.Forms.TextBox()
-        Me.txtNumberY.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.txtNumberY.Location = New System.Drawing.Point(90, 72)
+        Me.txtNumberY.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtNumberY.Location = New System.Drawing.Point(285, 27)
         Me.txtNumberY.Name = "txtNumberY"
-        Me.txtNumberY.Size = New System.Drawing.Size(90, 24)
+        Me.txtNumberY.Size = New System.Drawing.Size(60, 25)
         Me.txtNumberY.TabIndex = 3
         Me.txtNumberY.Text = "7"
         Me.txtNumberY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
-        'Label8 - Barcode X
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.0!)
-        Me.Label8.Location = New System.Drawing.Point(180, 115)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(105, 14)
-        Me.Label8.TabIndex = 4
-        Me.Label8.Text = "موضع الباركود X (مم):"
-        
-        'txtBarcodeX
-        Me.txtBarcodeX = New System.Windows.Forms.TextBox()
-        Me.txtBarcodeX.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.txtBarcodeX.Location = New System.Drawing.Point(90, 112)
-        Me.txtBarcodeX.Name = "txtBarcodeX"
-        Me.txtBarcodeX.Size = New System.Drawing.Size(90, 24)
-        Me.txtBarcodeX.TabIndex = 5
-        Me.txtBarcodeX.Text = "2"
-        Me.txtBarcodeX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        
-        'Label9 - Barcode Y
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Tahoma", 9.0!)
-        Me.Label9.Location = New System.Drawing.Point(180, 155)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(105, 14)
-        Me.Label9.TabIndex = 6
-        Me.Label9.Text = "موضع الباركود Y (مم):"
-        
-        'txtBarcodeY
-        Me.txtBarcodeY = New System.Windows.Forms.TextBox()
-        Me.txtBarcodeY.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.txtBarcodeY.Location = New System.Drawing.Point(90, 152)
-        Me.txtBarcodeY.Name = "txtBarcodeY"
-        Me.txtBarcodeY.Size = New System.Drawing.Size(90, 24)
-        Me.txtBarcodeY.TabIndex = 7
-        Me.txtBarcodeY.Text = "1"
-        Me.txtBarcodeY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        
-        'Label10 - Number Size
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Tahoma", 9.0!)
-        Me.Label10.Location = New System.Drawing.Point(205, 195)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(80, 14)
-        Me.Label10.TabIndex = 8
-        Me.Label10.Text = "حجم الخط:"
+        'Label11 - Number Size
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(130, 30)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(78, 14)
+        Me.Label11.TabIndex = 4
+        Me.Label11.Text = "Number Size"
         
         'txtNumberSize
-        Me.txtNumberSize = New System.Windows.Forms.TextBox()
-        Me.txtNumberSize.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.txtNumberSize.Location = New System.Drawing.Point(90, 192)
+        Me.txtNumberSize.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtNumberSize.Location = New System.Drawing.Point(215, 27)
         Me.txtNumberSize.Name = "txtNumberSize"
-        Me.txtNumberSize.Size = New System.Drawing.Size(90, 24)
-        Me.txtNumberSize.TabIndex = 9
+        Me.txtNumberSize.Size = New System.Drawing.Size(35, 25)
+        Me.txtNumberSize.TabIndex = 5
         Me.txtNumberSize.Text = "47"
         Me.txtNumberSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'Label12 - # Size
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Location = New System.Drawing.Point(30, 30)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(45, 14)
+        Me.Label12.TabIndex = 6
+        Me.Label12.Text = "# Size"
+        
+        'txtHashSize
+        Me.txtHashSize.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.txtHashSize.Location = New System.Drawing.Point(80, 27)
+        Me.txtHashSize.Name = "txtHashSize"
+        Me.txtHashSize.Size = New System.Drawing.Size(35, 25)
+        Me.txtHashSize.TabIndex = 7
+        Me.txtHashSize.Text = ""
+        Me.txtHashSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        
+        'GroupBox5 - معاينة
+        Me.GroupBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
+        Me.GroupBox5.Controls.Add(Me.lblPreviewNumber2)
+        Me.GroupBox5.Controls.Add(Me.lblPreviewNumber1)
+        Me.GroupBox5.Controls.Add(Me.btnNewPrint)
+        Me.GroupBox5.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox5.ForeColor = System.Drawing.Color.White
+        Me.GroupBox5.Location = New System.Drawing.Point(345, 195)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.GroupBox5.Size = New System.Drawing.Size(497, 255)
+        Me.GroupBox5.TabIndex = 4
+        Me.GroupBox5.TabStop = False
+        
+        'lblPreviewNumber1
+        Me.lblPreviewNumber1.BackColor = System.Drawing.Color.White
+        Me.lblPreviewNumber1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblPreviewNumber1.Font = New System.Drawing.Font("Arial", 48.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPreviewNumber1.ForeColor = System.Drawing.Color.Black
+        Me.lblPreviewNumber1.Location = New System.Drawing.Point(357, 25)
+        Me.lblPreviewNumber1.Name = "lblPreviewNumber1"
+        Me.lblPreviewNumber1.Size = New System.Drawing.Size(123, 90)
+        Me.lblPreviewNumber1.TabIndex = 0
+        Me.lblPreviewNumber1.Text = "1"
+        Me.lblPreviewNumber1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        
+        'lblPreviewNumber2
+        Me.lblPreviewNumber2.BackColor = System.Drawing.Color.White
+        Me.lblPreviewNumber2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblPreviewNumber2.Font = New System.Drawing.Font("Arial", 48.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPreviewNumber2.ForeColor = System.Drawing.Color.Black
+        Me.lblPreviewNumber2.Location = New System.Drawing.Point(357, 125)
+        Me.lblPreviewNumber2.Name = "lblPreviewNumber2"
+        Me.lblPreviewNumber2.Size = New System.Drawing.Size(123, 90)
+        Me.lblPreviewNumber2.TabIndex = 1
+        Me.lblPreviewNumber2.Text = "50"
+        Me.lblPreviewNumber2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        
+        'btnNewPrint
+        Me.btnNewPrint.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
+        Me.btnNewPrint.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnNewPrint.FlatAppearance.BorderSize = 2
+        Me.btnNewPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNewPrint.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.btnNewPrint.ForeColor = System.Drawing.Color.White
+        Me.btnNewPrint.Location = New System.Drawing.Point(20, 70)
+        Me.btnNewPrint.Name = "btnNewPrint"
+        Me.btnNewPrint.Size = New System.Drawing.Size(150, 90)
+        Me.btnNewPrint.TabIndex = 2
+        Me.btnNewPrint.Text = "طباعة جديد"
+        Me.btnNewPrint.UseVisualStyleBackColor = False
         
         'chkPrintBarcode
         Me.chkPrintBarcode.AutoSize = True
         Me.chkPrintBarcode.Checked = True
         Me.chkPrintBarcode.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkPrintBarcode.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.chkPrintBarcode.Location = New System.Drawing.Point(220, 30)
+        Me.chkPrintBarcode.ForeColor = System.Drawing.Color.White
+        Me.chkPrintBarcode.Location = New System.Drawing.Point(700, 15)
         Me.chkPrintBarcode.Name = "chkPrintBarcode"
-        Me.chkPrintBarcode.Size = New System.Drawing.Size(163, 21)
-        Me.chkPrintBarcode.TabIndex = 0
+        Me.chkPrintBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkPrintBarcode.Size = New System.Drawing.Size(130, 21)
+        Me.chkPrintBarcode.TabIndex = 5
         Me.chkPrintBarcode.Text = "طباعة الباركود"
         Me.chkPrintBarcode.UseVisualStyleBackColor = True
-        
-        'Label3
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.Label3.Location = New System.Drawing.Point(260, 70)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(120, 17)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "ارتفاع الباركود (مم):"
-        
-        'txtBarHeight
-        Me.txtBarHeight.Font = New System.Drawing.Font("Tahoma", 11.0!)
-        Me.txtBarHeight.Location = New System.Drawing.Point(150, 67)
-        Me.txtBarHeight.Name = "txtBarHeight"
-        Me.txtBarHeight.Size = New System.Drawing.Size(90, 25)
-        Me.txtBarHeight.TabIndex = 2
-        Me.txtBarHeight.Text = "25"
-        Me.txtBarHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        
-        'Label4
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.Label4.Location = New System.Drawing.Point(275, 110)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(105, 17)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "عرض الباركود (مم):"
-        
-        'txtBarWidth
-        Me.txtBarWidth.Font = New System.Drawing.Font("Tahoma", 11.0!)
-        Me.txtBarWidth.Location = New System.Drawing.Point(150, 107)
-        Me.txtBarWidth.Name = "txtBarWidth"
-        Me.txtBarWidth.Size = New System.Drawing.Size(90, 25)
-        Me.txtBarWidth.TabIndex = 4
-        Me.txtBarWidth.Text = "40"
-        Me.txtBarWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        
-        'Label5
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.Label5.Location = New System.Drawing.Point(330, 320)
-        Me.Label5.Name = "Label5"
-        Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Label5.Size = New System.Drawing.Size(60, 17)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "الطابعة:"
-        
-        'cmbPrinters
-        Me.cmbPrinters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbPrinters.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.cmbPrinters.FormattingEnabled = True
-        Me.cmbPrinters.Location = New System.Drawing.Point(12, 317)
-        Me.cmbPrinters.Name = "cmbPrinters"
-        Me.cmbPrinters.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.cmbPrinters.Size = New System.Drawing.Size(300, 24)
-        Me.cmbPrinters.TabIndex = 3
-        
-        'btnPreview
-        Me.btnPreview.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPreview.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.btnPreview.ForeColor = System.Drawing.Color.White
-        Me.btnPreview.Location = New System.Drawing.Point(225, 370)
-        Me.btnPreview.Name = "btnPreview"
-        Me.btnPreview.Size = New System.Drawing.Size(180, 45)
-        Me.btnPreview.TabIndex = 4
-        Me.btnPreview.Text = "معاينة قبل الطباعة"
-        Me.btnPreview.UseVisualStyleBackColor = False
-        
-        'btnPrint
-        Me.btnPrint.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPrint.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnPrint.ForeColor = System.Drawing.Color.White
-        Me.btnPrint.Location = New System.Drawing.Point(12, 370)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(200, 45)
-        Me.btnPrint.TabIndex = 5
-        Me.btnPrint.Text = "طباعة"
-        Me.btnPrint.UseVisualStyleBackColor = False
-        
-        'lblStatus
-        Me.lblStatus.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.lblStatus.Location = New System.Drawing.Point(12, 430)
-        Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.lblStatus.Size = New System.Drawing.Size(400, 20)
-        Me.lblStatus.TabIndex = 6
-        Me.lblStatus.Text = "جاهز للطباعة"
-        Me.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         
         'PrintPreviewDialog1
         Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
@@ -350,58 +484,68 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(875, 365)
+        Me.ClientSize = New System.Drawing.Size(860, 465)
+        Me.Controls.Add(Me.chkPrintBarcode)
+        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.lblStatus)
-        Me.Controls.Add(Me.btnPrint)
-        Me.Controls.Add(Me.btnPreview)
-        Me.Controls.Add(Me.cmbPrinters)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "Form1"
+        Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "طباعة الباركود - ملصقين لكل طبعة"
+        Me.Text = "Xprinter XP-370B - طباعة الباركود"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents txtNumberTo As TextBox
-    Friend WithEvents txtNumberFrom As TextBox
+    Friend WithEvents txtPrintLength As TextBox
+    Friend WithEvents txtPrintWidth As TextBox
+    Friend WithEvents txtPrintTemp As TextBox
+    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents chkPrintBarcode As CheckBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents txtBarWidth As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents txtBarHeight As TextBox
-    Friend WithEvents cmbPrinters As ComboBox
+    Friend WithEvents txtWideBarWidth As TextBox
+    Friend WithEvents txtNarrowBarWidth As TextBox
+    Friend WithEvents txtBarcodeY As TextBox
+    Friend WithEvents txtBarcodeX2 As TextBox
+    Friend WithEvents txtBarcodeX1 As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents btnPrint As Button
-    Friend WithEvents btnPreview As Button
-    Friend WithEvents lblStatus As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents txtPrinterName As TextBox
+    Friend WithEvents chkPrintMode As CheckBox
+    Friend WithEvents btnOpenPrint As Button
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents txtHashSize As TextBox
+    Friend WithEvents txtNumberSize As TextBox
+    Friend WithEvents txtNumberY As TextBox
+    Friend WithEvents txtNumberX As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents lblPreviewNumber2 As Label
+    Friend WithEvents lblPreviewNumber1 As Label
+    Friend WithEvents btnNewPrint As Button
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents txtNumberX As TextBox
-    Friend WithEvents txtNumberY As TextBox
-    Friend WithEvents txtBarcodeX As TextBox
-    Friend WithEvents txtBarcodeY As TextBox
-    Friend WithEvents txtNumberSize As TextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
+    Friend WithEvents chkPrintBarcode As CheckBox
 
 End Class

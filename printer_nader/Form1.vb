@@ -11,65 +11,46 @@ Public Class Form1
     Private barcodeHeight As Integer
     Private numberX As Single
     Private numberY As Single
-    Private barcodeX As Single
-    Private barcodeY As Single
     Private numberSize As Integer
+    Private hashSize As Integer
+    Private printTemp As Integer
+    Private printWidth As Integer
+    Private printLength As Integer
+    Private barcodeX1 As Integer
+    Private barcodeX2 As Integer
+    Private barcodeY As Integer
+    Private narrowBarWidth As Integer
+    Private wideBarWidth As Integer
+    Private printMode As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadPrinters()
         currentNumbers = New List(Of Integer)()
+        UpdatePreviewNumbers(1, 50)
     End Sub
 
-    Private Sub LoadPrinters()
-        cmbPrinters.Items.Clear()
-        For Each printer As String In PrinterSettings.InstalledPrinters
-            cmbPrinters.Items.Add(printer)
-        Next
-
-        If cmbPrinters.Items.Count > 0 Then
-            If Not String.IsNullOrEmpty(PrintDocument1.PrinterSettings.PrinterName) Then
-                Dim index As Integer = cmbPrinters.FindStringExact(PrintDocument1.PrinterSettings.PrinterName)
-                If index >= 0 Then
-                    cmbPrinters.SelectedIndex = index
-                Else
-                    cmbPrinters.SelectedIndex = 0
-                End If
-            Else
-                cmbPrinters.SelectedIndex = 0
-            End If
-        End If
+    Private Sub UpdatePreviewNumbers(num1 As Integer, num2 As Integer)
+        lblPreviewNumber1.Text = num1.ToString()
+        lblPreviewNumber2.Text = num2.ToString()
     End Sub
 
-    Private Sub btnPreview_Click(sender As Object, e As EventArgs) Handles btnPreview.Click
+    Private Sub btnNewPrint_Click(sender As Object, e As EventArgs) Handles btnNewPrint.Click
         If Not ValidateInput() Then Return
 
         PreparePrintData()
         
         Try
-            If cmbPrinters.SelectedItem IsNot Nothing Then
-                PrintDocument1.PrinterSettings.PrinterName = cmbPrinters.SelectedItem.ToString()
+            If Not String.IsNullOrWhiteSpace(txtPrinterName.Text) Then
+                PrintDocument1.PrinterSettings.PrinterName = txtPrinterName.Text
             End If
 
-            PrintPreviewDialog1.ShowDialog()
-        Catch ex As Exception
-            MessageBox.Show("خطأ في المعاينة: " & ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-
-    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
-        If Not ValidateInput() Then Return
-
-        PreparePrintData()
-        
-        Try
-            If cmbPrinters.SelectedItem IsNot Nothing Then
-                PrintDocument1.PrinterSettings.PrinterName = cmbPrinters.SelectedItem.ToString()
-            End If
-
+            Dim labelsPerPage As Integer = If(printMode = "2x1", 2, 1)
+            Dim totalPages As Integer = CInt(Math.Ceiling(currentNumbers.Count / labelsPerPage))
+            
             Dim result As DialogResult = MessageBox.Show(
-                String.Format("سيتم طباعة {0} ملصق على {1} صفحة. هل تريد المتابعة؟", 
+                String.Format("سيتم طباعة {0} ملصق على {1} صفحة ({2}). هل تريد المتابعة؟", 
                               currentNumbers.Count, 
-                              Math.Ceiling(currentNumbers.Count / 2)),
+                              totalPages,
+                              printMode),
                 "تأكيد الطباعة",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question)
@@ -83,36 +64,68 @@ Public Class Form1
         End Try
     End Sub
 
+    Private Sub btnOpenPrint_Click(sender As Object, e As EventArgs) Handles btnOpenPrint.Click
+        If Not ValidateInput() Then Return
+
+        PreparePrintData()
+        
+        Try
+            If Not String.IsNullOrWhiteSpace(txtPrinterName.Text) Then
+                PrintDocument1.PrinterSettings.PrinterName = txtPrinterName.Text
+            End If
+
+            PrintPreviewDialog1.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show("خطأ في المعاينة: " & ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
     Private Function ValidateInput() As Boolean
-        Dim fromNum, toNum As Integer
-
-        If Not Integer.TryParse(txtNumberFrom.Text, fromNum) Then
-            MessageBox.Show("الرجاء إدخال رقم صحيح في حقل 'من رقم'", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtNumberFrom.Focus()
+        If Not Integer.TryParse(txtPrintTemp.Text, printTemp) OrElse printTemp <= 0 Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لحرارة الطباعة", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPrintTemp.Focus()
             Return False
         End If
 
-        If Not Integer.TryParse(txtNumberTo.Text, toNum) Then
-            MessageBox.Show("الرجاء إدخال رقم صحيح في حقل 'إلى رقم'", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtNumberTo.Focus()
+        If Not Integer.TryParse(txtPrintWidth.Text, printWidth) OrElse printWidth <= 0 Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة للعرض", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPrintWidth.Focus()
             Return False
         End If
 
-        If fromNum > toNum Then
-            MessageBox.Show("رقم البداية يجب أن يكون أصغر من أو يساوي رقم النهاية", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtNumberFrom.Focus()
+        If Not Integer.TryParse(txtPrintLength.Text, printLength) OrElse printLength <= 0 Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة للطول", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPrintLength.Focus()
             Return False
         End If
 
-        If Not Integer.TryParse(txtBarWidth.Text, barcodeWidth) OrElse barcodeWidth <= 0 Then
-            MessageBox.Show("الرجاء إدخال عرض صحيح للباركود", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtBarWidth.Focus()
+        If Not Integer.TryParse(txtBarcodeX1.Text, barcodeX1) OrElse barcodeX1 <= 0 Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لـ X الأولى", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtBarcodeX1.Focus()
             Return False
         End If
 
-        If Not Integer.TryParse(txtBarHeight.Text, barcodeHeight) OrElse barcodeHeight <= 0 Then
-            MessageBox.Show("الرجاء إدخال ارتفاع صحيح للباركود", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtBarHeight.Focus()
+        If Not Integer.TryParse(txtBarcodeX2.Text, barcodeX2) OrElse barcodeX2 <= 0 Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لـ X الثانية", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtBarcodeX2.Focus()
+            Return False
+        End If
+
+        If Not Integer.TryParse(txtBarcodeY.Text, barcodeY) OrElse barcodeY <= 0 Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لـ Y", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtBarcodeY.Focus()
+            Return False
+        End If
+
+        If Not Integer.TryParse(txtNarrowBarWidth.Text, narrowBarWidth) OrElse narrowBarWidth <= 0 Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لـ Narrow Bar Width", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtNarrowBarWidth.Focus()
+            Return False
+        End If
+
+        If Not Integer.TryParse(txtWideBarWidth.Text, wideBarWidth) OrElse wideBarWidth <= 0 Then
+            MessageBox.Show("الرجاء إدخال قيمة صحيحة لـ Wide Bar Width", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtWideBarWidth.Focus()
             Return False
         End If
 
@@ -131,23 +144,27 @@ Public Class Form1
         End If
         numberY = tempY
 
-        If Not Single.TryParse(txtBarcodeX.Text, tempX) Then
-            MessageBox.Show("الرجاء إدخال قيمة صحيحة لموضع الباركود X", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtBarcodeX.Focus()
-            Return False
-        End If
-        barcodeX = tempX
-
-        If Not Single.TryParse(txtBarcodeY.Text, tempY) Then
-            MessageBox.Show("الرجاء إدخال قيمة صحيحة لموضع الباركود Y", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtBarcodeY.Focus()
-            Return False
-        End If
-        barcodeY = tempY
-
         If Not Integer.TryParse(txtNumberSize.Text, numberSize) OrElse numberSize <= 0 Then
             MessageBox.Show("الرجاء إدخال حجم خط صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtNumberSize.Focus()
+            Return False
+        End If
+
+        If Not String.IsNullOrWhiteSpace(txtHashSize.Text) Then
+            If Not Integer.TryParse(txtHashSize.Text, hashSize) OrElse hashSize <= 0 Then
+                MessageBox.Show("الرجاء إدخال قيمة صحيحة لـ # Size", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                txtHashSize.Focus()
+                Return False
+            End If
+        Else
+            hashSize = 0
+        End If
+
+        printMode = If(chkPrintMode.Checked, "2x1", "1x1")
+
+        If String.IsNullOrWhiteSpace(txtPrinterName.Text) Then
+            MessageBox.Show("الرجاء إدخال اسم الطابعة", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPrinterName.Focus()
             Return False
         End If
 
@@ -158,41 +175,52 @@ Public Class Form1
         currentNumbers.Clear()
         currentPairIndex = 0
         
-        Dim fromNum As Integer = Integer.Parse(txtNumberFrom.Text)
-        Dim toNum As Integer = Integer.Parse(txtNumberTo.Text)
+        Dim num1 As Integer
+        Dim num2 As Integer
+        
+        If Integer.TryParse(lblPreviewNumber1.Text, num1) AndAlso Integer.TryParse(lblPreviewNumber2.Text, num2) Then
+            If num1 <= num2 Then
+                For i As Integer = num1 To num2
+                    currentNumbers.Add(i)
+                Next
+            Else
+                MessageBox.Show("الرقم الأول يجب أن يكون أصغر من أو يساوي الرقم الأخير", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                For i As Integer = 1 To 50
+                    currentNumbers.Add(i)
+                Next
+            End If
+        Else
+            For i As Integer = 1 To 50
+                currentNumbers.Add(i)
+            Next
+        End If
+
         printWithBarcode = chkPrintBarcode.Checked
-
-        For i As Integer = fromNum To toNum
-            currentNumbers.Add(i)
-        Next
-
-        lblStatus.Text = String.Format("جاهز لطباعة {0} ملصق على {1} صفحة", 
-                                       currentNumbers.Count, 
-                                       Math.Ceiling(currentNumbers.Count / 2))
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
         e.Graphics.PageUnit = GraphicsUnit.Millimeter
         
-        Dim labelWidth As Single = 64.0F
-        Dim labelHeight As Single = 25.0F
+        Dim labelWidth As Single = CSng(printWidth)
+        Dim labelHeight As Single = CSng(printLength)
         Dim marginLeft As Single = 6.0F
         Dim marginTop As Single = 6.0F
         Dim spacing As Single = 2.0F
 
-        Dim firstLabelIndex As Integer = currentPairIndex * 2
+        Dim labelsPerPage As Integer = If(printMode = "2x1", 2, 1)
+        Dim firstLabelIndex As Integer = currentPairIndex * labelsPerPage
         Dim secondLabelIndex As Integer = firstLabelIndex + 1
 
         If firstLabelIndex < currentNumbers.Count Then
             DrawLabel(e.Graphics, currentNumbers(firstLabelIndex), marginLeft, marginTop, labelWidth, labelHeight)
         End If
 
-        If secondLabelIndex < currentNumbers.Count Then
+        If labelsPerPage = 2 AndAlso secondLabelIndex < currentNumbers.Count Then
             DrawLabel(e.Graphics, currentNumbers(secondLabelIndex), marginLeft, marginTop + labelHeight + spacing, labelWidth, labelHeight)
         End If
 
         currentPairIndex += 1
-        e.HasMorePages = (currentPairIndex * 2) < currentNumbers.Count
+        e.HasMorePages = (currentPairIndex * labelsPerPage) < currentNumbers.Count
     End Sub
 
     Private Sub DrawLabel(g As Graphics, number As Integer, x As Single, y As Single, width As Single, height As Single)
@@ -204,14 +232,26 @@ Public Class Form1
         Dim actualNumberY As Single = y + numberY
         g.DrawString(numberText, numberFont, Brushes.Black, actualNumberX, actualNumberY)
 
+        If hashSize > 0 Then
+            Dim hashFont As New Font("Arial", hashSize, FontStyle.Regular)
+            g.DrawString("#", hashFont, Brushes.Black, actualNumberX - 10, actualNumberY)
+            hashFont.Dispose()
+        End If
+
         If printWithBarcode Then
             Try
-                Dim barcodeImage As Bitmap = GenerateBarcode(numberText, barcodeWidth, barcodeHeight)
+                Dim barcodeWidthMm As Single = Math.Abs(CSng(barcodeX2 - barcodeX1))
+                Dim barcodeHeightMm As Single = 10.0F
                 
-                Dim actualBarcodeX As Single = x + barcodeX
-                Dim actualBarcodeY As Single = y + barcodeY
+                Dim barcodeWidthPixels As Integer = CInt(barcodeWidthMm * 3)
+                Dim barcodeHeightPixels As Integer = CInt(barcodeHeightMm * 3)
                 
-                g.DrawImage(barcodeImage, actualBarcodeX, actualBarcodeY, barcodeWidth, barcodeHeight)
+                Dim barcodeImage As Bitmap = GenerateBarcode(numberText, barcodeWidthPixels, barcodeHeightPixels)
+                
+                Dim actualBarcodeX As Single = x + CSng(barcodeX1)
+                Dim actualBarcodeY As Single = y + CSng(barcodeY)
+                
+                g.DrawImage(barcodeImage, actualBarcodeX, actualBarcodeY, barcodeWidthMm, barcodeHeightMm)
             Catch ex As Exception
                 Dim errorFont As New Font("Arial", 8)
                 g.DrawString("خطأ في الباركود", errorFont, Brushes.Red, x + 10, y + 50)
@@ -232,10 +272,40 @@ Public Class Form1
         options.Margin = 0
         options.PureBarcode = False
         
+        If narrowBarWidth > 0 AndAlso wideBarWidth > 0 Then
+            Dim ratio As Double = CDbl(wideBarWidth) / CDbl(narrowBarWidth)
+            Dim effectiveWidth As Integer = CInt(width * ratio / 3)
+            options.Width = effectiveWidth
+        End If
+        
         writer.Options = options
         
         Dim barcodeBitmap As Bitmap = writer.Write(text)
         Return barcodeBitmap
     End Function
+
+    Private Sub lblPreviewNumber1_Click(sender As Object, e As EventArgs) Handles lblPreviewNumber1.Click
+        Dim input As String = InputBox("أدخل الرقم الأول:", "تعديل الرقم", lblPreviewNumber1.Text)
+        If Not String.IsNullOrWhiteSpace(input) Then
+            Dim num As Integer
+            If Integer.TryParse(input, num) Then
+                lblPreviewNumber1.Text = num.ToString()
+            Else
+                MessageBox.Show("الرجاء إدخال رقم صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        End If
+    End Sub
+
+    Private Sub lblPreviewNumber2_Click(sender As Object, e As EventArgs) Handles lblPreviewNumber2.Click
+        Dim input As String = InputBox("أدخل الرقم الأخير:", "تعديل الرقم", lblPreviewNumber2.Text)
+        If Not String.IsNullOrWhiteSpace(input) Then
+            Dim num As Integer
+            If Integer.TryParse(input, num) Then
+                lblPreviewNumber2.Text = num.ToString()
+            Else
+                MessageBox.Show("الرجاء إدخال رقم صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        End If
+    End Sub
 
 End Class
