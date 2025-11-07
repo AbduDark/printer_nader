@@ -49,49 +49,53 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.txtNumberFrom)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
         Me.GroupBox1.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 32)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.GroupBox1.Size = New System.Drawing.Size(400, 120)
+        Me.GroupBox1.Size = New System.Drawing.Size(290, 155)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "نطاق الأرقام"
+        Me.GroupBox1.Text = "مقاس الطباعة بالملي"
         
         'Label1
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.Label1.Location = New System.Drawing.Point(320, 35)
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(180, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 17)
+        Me.Label1.Size = New System.Drawing.Size(85, 14)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "من رقم:"
+        Me.Label1.Text = "حرارة الطباعة"
         
         'txtNumberFrom
         Me.txtNumberFrom.Font = New System.Drawing.Font("Tahoma", 11.0!)
-        Me.txtNumberFrom.Location = New System.Drawing.Point(150, 32)
+        Me.txtNumberFrom.Location = New System.Drawing.Point(40, 32)
         Me.txtNumberFrom.Name = "txtNumberFrom"
-        Me.txtNumberFrom.Size = New System.Drawing.Size(150, 25)
+        Me.txtNumberFrom.Size = New System.Drawing.Size(80, 25)
         Me.txtNumberFrom.TabIndex = 1
-        Me.txtNumberFrom.Text = "1"
+        Me.txtNumberFrom.Text = "15"
         Me.txtNumberFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
         'Label2
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Tahoma", 10.0!)
-        Me.Label2.Location = New System.Drawing.Point(320, 75)
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(210, 72)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 17)
+        Me.Label2.Size = New System.Drawing.Size(45, 14)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "إلى رقم:"
+        Me.Label2.Text = "العرض"
         
         'txtNumberTo
         Me.txtNumberTo.Font = New System.Drawing.Font("Tahoma", 11.0!)
-        Me.txtNumberTo.Location = New System.Drawing.Point(150, 72)
+        Me.txtNumberTo.Location = New System.Drawing.Point(40, 69)
         Me.txtNumberTo.Name = "txtNumberTo"
-        Me.txtNumberTo.Size = New System.Drawing.Size(150, 25)
+        Me.txtNumberTo.Size = New System.Drawing.Size(80, 25)
         Me.txtNumberTo.TabIndex = 3
-        Me.txtNumberTo.Text = "50"
+        Me.txtNumberTo.Text = "40"
         Me.txtNumberTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
         'GroupBox2
@@ -138,7 +142,7 @@ Partial Class Form1
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(85, 14)
         Me.Label6.TabIndex = 0
-        Me.Label6.Text = "موضع الرقم X:"
+        Me.Label6.Text = "موضع الرقم X (مم):"
         
         'txtNumberX
         Me.txtNumberX = New System.Windows.Forms.TextBox()
@@ -158,7 +162,7 @@ Partial Class Form1
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(85, 14)
         Me.Label7.TabIndex = 2
-        Me.Label7.Text = "موضع الرقم Y:"
+        Me.Label7.Text = "موضع الرقم Y (مم):"
         
         'txtNumberY
         Me.txtNumberY = New System.Windows.Forms.TextBox()
@@ -178,7 +182,7 @@ Partial Class Form1
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(105, 14)
         Me.Label8.TabIndex = 4
-        Me.Label8.Text = "موضع الباركود X:"
+        Me.Label8.Text = "موضع الباركود X (مم):"
         
         'txtBarcodeX
         Me.txtBarcodeX = New System.Windows.Forms.TextBox()
@@ -198,7 +202,7 @@ Partial Class Form1
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(105, 14)
         Me.Label9.TabIndex = 6
-        Me.Label9.Text = "موضع الباركود Y:"
+        Me.Label9.Text = "موضع الباركود Y (مم):"
         
         'txtBarcodeY
         Me.txtBarcodeY = New System.Windows.Forms.TextBox()
@@ -249,7 +253,7 @@ Partial Class Form1
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(120, 17)
         Me.Label3.TabIndex = 1
-        Me.Label3.Text = "ارتفاع الباركود:"
+        Me.Label3.Text = "ارتفاع الباركود (مم):"
         
         'txtBarHeight
         Me.txtBarHeight.Font = New System.Drawing.Font("Tahoma", 11.0!)
@@ -267,7 +271,7 @@ Partial Class Form1
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(105, 17)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "عرض الباركود:"
+        Me.Label4.Text = "عرض الباركود (مم):"
         
         'txtBarWidth
         Me.txtBarWidth.Font = New System.Drawing.Font("Tahoma", 11.0!)
@@ -345,8 +349,8 @@ Partial Class Form1
         'Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(732, 461)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(119, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(875, 365)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.lblStatus)
         Me.Controls.Add(Me.btnPrint)

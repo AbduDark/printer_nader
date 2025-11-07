@@ -172,11 +172,13 @@ Public Class Form1
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        Dim labelWidth As Single = 2.5F * 100
-        Dim labelHeight As Single = 1.0F * 100
-        Dim marginLeft As Single = 0.25F * 100
-        Dim marginTop As Single = 0.25F * 100
-        Dim spacing As Single = 0.1F * 100
+        e.Graphics.PageUnit = GraphicsUnit.Millimeter
+        
+        Dim labelWidth As Single = 64.0F
+        Dim labelHeight As Single = 25.0F
+        Dim marginLeft As Single = 6.0F
+        Dim marginTop As Single = 6.0F
+        Dim spacing As Single = 2.0F
 
         Dim firstLabelIndex As Integer = currentPairIndex * 2
         Dim secondLabelIndex As Integer = firstLabelIndex + 1
