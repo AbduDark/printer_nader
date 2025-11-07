@@ -147,7 +147,7 @@ Partial Class Form1
         Me.txtNumberX.Name = "txtNumberX"
         Me.txtNumberX.Size = New System.Drawing.Size(90, 24)
         Me.txtNumberX.TabIndex = 1
-        Me.txtNumberX.Text = "10"
+        Me.txtNumberX.Text = "31"
         Me.txtNumberX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
         'Label7 - Number Y
@@ -167,7 +167,7 @@ Partial Class Form1
         Me.txtNumberY.Name = "txtNumberY"
         Me.txtNumberY.Size = New System.Drawing.Size(90, 24)
         Me.txtNumberY.TabIndex = 3
-        Me.txtNumberY.Text = "5"
+        Me.txtNumberY.Text = "7"
         Me.txtNumberY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
         'Label8 - Barcode X
@@ -187,7 +187,7 @@ Partial Class Form1
         Me.txtBarcodeX.Name = "txtBarcodeX"
         Me.txtBarcodeX.Size = New System.Drawing.Size(90, 24)
         Me.txtBarcodeX.TabIndex = 5
-        Me.txtBarcodeX.Text = "10"
+        Me.txtBarcodeX.Text = "2"
         Me.txtBarcodeX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
         'Label9 - Barcode Y
@@ -207,7 +207,7 @@ Partial Class Form1
         Me.txtBarcodeY.Name = "txtBarcodeY"
         Me.txtBarcodeY.Size = New System.Drawing.Size(90, 24)
         Me.txtBarcodeY.TabIndex = 7
-        Me.txtBarcodeY.Text = "40"
+        Me.txtBarcodeY.Text = "1"
         Me.txtBarcodeY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
         'Label10 - Number Size
@@ -227,7 +227,7 @@ Partial Class Form1
         Me.txtNumberSize.Name = "txtNumberSize"
         Me.txtNumberSize.Size = New System.Drawing.Size(90, 24)
         Me.txtNumberSize.TabIndex = 9
-        Me.txtNumberSize.Text = "28"
+        Me.txtNumberSize.Text = "47"
         Me.txtNumberSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
         'chkPrintBarcode
@@ -257,7 +257,7 @@ Partial Class Form1
         Me.txtBarHeight.Name = "txtBarHeight"
         Me.txtBarHeight.Size = New System.Drawing.Size(90, 25)
         Me.txtBarHeight.TabIndex = 2
-        Me.txtBarHeight.Text = "50"
+        Me.txtBarHeight.Text = "25"
         Me.txtBarHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
         'Label4
@@ -275,7 +275,7 @@ Partial Class Form1
         Me.txtBarWidth.Name = "txtBarWidth"
         Me.txtBarWidth.Size = New System.Drawing.Size(90, 25)
         Me.txtBarWidth.TabIndex = 4
-        Me.txtBarWidth.Text = "200"
+        Me.txtBarWidth.Text = "40"
         Me.txtBarWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         
         'Label5
