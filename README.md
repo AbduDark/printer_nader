@@ -1,50 +1,93 @@
-# Printer Nader
+# Printer Nader - طباعة الباركود
 
-A Windows Forms desktop application built with Visual Basic .NET and .NET 8.0.
+برنامج طباعة باركود احترافي مصمم لطباعة ملصقات الباركود بنظام ملصقين لكل طبعة.
 
-## About This Project
+## وصف التطبيق
 
-This is a Windows Forms GUI application that was designed to run on Windows operating systems. It has been successfully configured to build on Replit's Linux environment, though running the graphical interface has limitations outside of Windows.
+تطبيق Windows Forms مكتوب بلغة Visual Basic .NET ويستخدم .NET 8.0. التطبيق مصمم خصيصاً للعمل مع طابعات الباركود التي تطبع ملصقين في كل دورة طباعة.
 
-## Current Status on Replit
+## المميزات الرئيسية
 
-✅ **Building**: The project builds successfully  
-⚠️ **Running**: Windows Forms applications require a Windows environment or compatibility layer to display the GUI
+✅ **طباعة أرقام متسلسلة** - يمكنك تحديد نطاق أرقام ليتم طباعته  
+✅ **دعم الباركود** - يولد باركود بصيغة CODE-128 بشكل تلقائي  
+✅ **نظام الملصقين** - يطبع رقمين في كل صفحة لضمان عدم هدر ورق الملصقات  
+✅ **معاينة قبل الطباعة** - إمكانية المعاينة قبل الطباعة الفعلية  
+✅ **إعدادات مخصصة** - تحكم كامل في حجم الباركود وأبعاده  
+✅ **واجهة عربية** - واجهة مستخدم باللغة العربية بالكامل
 
-## Quick Start
+## كيفية الاستخدام
 
-### Building the Project
-The project is configured to build automatically. You can also manually build by running:
+### 1. بناء المشروع
 ```bash
 cd printer_nader
 dotnet build
 ```
 
-### Project Files
-- `Form1.vb` - Main application form
-- `printer_nader.vbproj` - Project configuration
-- Built output: `bin/Debug/net8.0-windows/`
+### 2. واجهة التطبيق
 
-## Technical Details
+التطبيق يحتوي على:
+- **حقل "من رقم"**: الرقم الأول في النطاق (مثال: 1)
+- **حقل "إلى رقم"**: الرقم الأخير في النطاق (مثال: 50)
+- **خيار "طباعة الباركود"**: لتفعيل أو إيقاف طباعة الباركود
+- **ارتفاع الباركود**: حدد ارتفاع الباركود بالبكسل (افتراضي: 50)
+- **عرض الباركود**: حدد عرض الباركود بالبكسل (افتراضي: 200)
+- **اختيار الطابعة**: اختر الطابعة المثبتة على جهازك
+- **زر "معاينة"**: لمعاينة الطباعة قبل التنفيذ
+- **زر "طباعة"**: لبدء عملية الطباعة
+
+### 3. مثال عملي
+
+إذا أردت طباعة الأرقام من 1 إلى 50:
+1. أدخل "1" في حقل "من رقم"
+2. أدخل "50" في حقل "إلى رقم"
+3. تأكد من تفعيل "طباعة الباركود"
+4. اضغط "معاينة" للتحقق
+5. اضغط "طباعة"
+
+سيتم طباعة 25 صفحة (كل صفحة تحتوي على ملصقين)
+
+## التفاصيل التقنية
 
 - **Framework**: .NET 8.0
-- **Language**: Visual Basic .NET
-- **UI**: Windows Forms
-- **Target**: Windows platform
+- **اللغة**: Visual Basic .NET
+- **واجهة المستخدم**: Windows Forms
+- **مكتبة الباركود**: ZXing.Net v0.16.11
+- **صيغة الباركود**: CODE-128
 
-## Limitations
+## ملفات المشروع
 
-This application uses Windows Forms, which is a Windows-specific GUI framework. While the code compiles on Linux, the graphical interface cannot run without:
-- A Windows environment, or
-- A compatibility layer like Wine (limited support for .NET applications)
+```
+printer_nader/
+├── Form1.vb                    # الكود الرئيسي للتطبيق
+├── Form1.Designer.vb           # تصميم الواجهة
+├── Form1.resx                  # موارد النموذج
+├── printer_nader.vbproj        # ملف المشروع
+└── bin/Debug/net8.0-windows/   # ملفات البناء
+```
 
-## Alternative Approaches
+## الباكجات المستخدمة
 
-If you need this application to run on Replit or other non-Windows environments, consider:
-1. Converting to a cross-platform framework (Avalonia UI, .NET MAUI)
-2. Rebuilding as a web application (ASP.NET, Blazor)
-3. Developing on a Windows machine for full Windows Forms support
+- `ZXing.Net` v0.16.11 - مكتبة توليد الباركود
+- `ZXing.Net.Bindings.Windows.Compatibility` v0.16.14 - دعم Windows Forms
 
-## Development
+## ملاحظات مهمة
 
-The project is ready for development. You can modify the Visual Basic code files and rebuild to see changes. For full GUI testing, a Windows environment is recommended.
+⚠️ **متطلبات التشغيل**:
+- التطبيق يعمل على نظام Windows
+- يحتاج طابعة مثبتة على الجهاز
+- لا يعمل على Linux بدون طبقة توافق (Wine)
+
+## المنطق البرمجي للملصقين
+
+التطبيق مصمم خصيصاً لطابعات الباركود التي تطلع ملصقين في كل طبعة:
+- يقسم الأرقام إلى أزواج تلقائياً
+- إذا كان العدد فردي، الصفحة الأخيرة ستحتوي على ملصق واحد فقط
+- كل صفحة تطبع بشكل منفصل لضمان عدم هدر الورق
+
+## التطوير المستقبلي
+
+يمكن إضافة:
+- دعم صيغ باركود إضافية (QR Code, EAN-13, إلخ)
+- حفظ الإعدادات
+- طباعة شعار أو نص إضافي
+- دعم ملصقات أكثر من اثنين في الصفحة

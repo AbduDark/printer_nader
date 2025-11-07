@@ -1,57 +1,98 @@
-# Printer Nader - Windows Forms Application
+# Printer Nader - تطبيق طباعة الباركود
 
-## Project Overview
-This is a Windows Forms desktop application written in Visual Basic .NET targeting .NET 8.0. The project was originally developed for Windows environments.
+## نظرة عامة
+تطبيق Windows Forms مكتوب بلغة Visual Basic .NET يستهدف .NET 8.0. التطبيق مصمم لطباعة أرقام متسلسلة بنظام الباركود على ملصقات بحيث يطبع رقمين في كل صفحة (لمطابقة طابعات الباركود التي تطلع ملصقين).
 
-## Current Status (November 7, 2025)
-- **Platform**: .NET 8.0 Windows Forms Application
-- **Environment**: Running on Replit (Linux-based)
-- **Build Status**: ✅ Successfully builds
-- **Runtime Status**: ⚠️ Limited - Windows Forms requires a Windows environment or compatibility layer
+## الحالة الحالية (7 نوفمبر 2025)
+- **المنصة**: .NET 8.0 Windows Forms Application
+- **البيئة**: Replit (Linux-based)
+- **حالة البناء**: ✅ يبني بنجاح
+- **حالة التشغيل**: ⚠️ محدود - Windows Forms يحتاج بيئة Windows
 
-## Project Structure
+## هيكل المشروع
 ```
 printer_nader/
-├── Form1.vb                    # Main form code
-├── Form1.Designer.vb           # Form designer-generated code
-├── Form1.resx                  # Form resources
-├── ApplicationEvents.vb        # Application-level event handlers
-├── printer_nader.vbproj        # Project file
+├── Form1.vb                    # كود النموذج الرئيسي
+├── Form1.Designer.vb           # تصميم الواجهة
+├── Form1.resx                  # موارد النموذج
+├── ApplicationEvents.vb        # أحداث التطبيق
+├── printer_nader.vbproj        # ملف المشروع
 └── My Project/
     ├── Application.Designer.vb
     └── Application.myapp
 ```
 
-## Technical Details
+## التفاصيل التقنية
 
-### Framework
+### الإطار البرمجي
 - **Target Framework**: net8.0-windows
-- **Language**: Visual Basic .NET
-- **UI Framework**: Windows Forms
-- **SDK Version**: 8.0.412
+- **اللغة**: Visual Basic .NET
+- **واجهة المستخدم**: Windows Forms
+- **نسخة SDK**: 8.0.412
 
-### Modifications for Replit
-- Added `EnableWindowsTargeting` property to allow building on Linux
-- Project successfully compiles despite targeting Windows
+### الباكجات المستخدمة
+- `ZXing.Net` v0.16.11 - مكتبة توليد الباركود
+- `ZXing.Net.Bindings.Windows.Compatibility` v0.16.14 - دعم Bitmap
 
-## Limitations on Replit
-Windows Forms applications are designed for Windows environments. While this project builds successfully on Replit's Linux environment, running the GUI requires either:
-1. A Windows environment
-2. Wine compatibility layer (not fully reliable for .NET applications)
-3. Conversion to a cross-platform framework (Avalonia, MAUI, etc.)
+### التعديلات لـ Replit
+- إضافة خاصية `EnableWindowsTargeting` للسماح بالبناء على Linux
+- المشروع يبني بنجاح رغم استهداف Windows
 
-## Build Instructions
+## الوظائف الرئيسية
+
+### 1. إدخال نطاق الأرقام
+- حقل "من رقم": الرقم الأول
+- حقل "إلى رقم": الرقم الأخير
+- التحقق من صحة الإدخال
+
+### 2. إعدادات الباركود
+- تفعيل/تعطيل طباعة الباركود
+- تحديد ارتفاع الباركود
+- تحديد عرض الباركود
+- استخدام صيغة CODE-128
+
+### 3. نظام الطباعة
+- طباعة رقمين في كل صفحة
+- معاينة قبل الطباعة
+- دعم جميع الطابعات المثبتة
+- رسائل تأكيد قبل الطباعة
+
+### 4. المنطق الذكي
+- تقسيم الأرقام إلى أزواج تلقائياً
+- معالجة الأعداد الفردية بشكل صحيح
+- حساب عدد الصفحات المطلوبة
+- عرض حالة الطباعة
+
+## تعليمات البناء
 ```bash
 cd printer_nader
 dotnet build
 ```
 
-## Development
-The application currently contains a basic Windows Form (Form1) with minimal functionality. To extend this application, edit the VB files in the printer_nader directory.
+## تعليمات الاستخدام (على Windows)
+1. افتح التطبيق
+2. أدخل نطاق الأرقام المطلوب
+3. اضبط إعدادات الباركود حسب الحاجة
+4. اختر الطابعة
+5. اضغط "معاينة" للتحقق
+6. اضغط "طباعة" لبدء الطباعة
 
-## Future Considerations
-To make this application fully functional on Replit, consider:
-- Converting to Avalonia UI (cross-platform .NET UI framework)
-- Converting to .NET MAUI
-- Converting to a web-based ASP.NET application
-- Using a Windows development environment for full Windows Forms support
+## القيود على Replit
+تطبيقات Windows Forms مصممة لبيئة Windows. المشروع يبني بنجاح على Replit لكن تشغيل الواجهة يحتاج:
+1. بيئة Windows
+2. طبقة توافق Wine (دعم محدود لتطبيقات .NET)
+3. تحويل لإطار عمل متعدد المنصات
+
+## التطوير
+التطبيق جاهز للاستخدام ويحتوي على:
+- واجهة مستخدم كاملة باللغة العربية
+- منطق طباعة متكامل بنظام الملصقين
+- توليد باركود CODE-128
+- معاينة قبل الطباعة
+- دعم جميع الطابعات
+
+## اعتبارات مستقبلية
+- إضافة دعم صيغ باركود أخرى (QR Code, EAN-13)
+- حفظ الإعدادات
+- دعم طباعة أكثر من ملصقين في الصفحة
+- تصدير إلى PDF
